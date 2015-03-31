@@ -69,7 +69,7 @@ public class WorkRecordsService extends GenericService<ServiceProvider> {
 	) throws ReflectiveOperationException {
 		logger.info("> WorkRecordsService()");
 		if (sp == null) {
-			sp = this.getServiceProvider(context);
+			sp = this.getServiceProvider(WorkRecordsService.class, context);
 		}
 		logger.info("WorkRecordsService() initialized");
 	}
