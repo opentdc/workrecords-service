@@ -21,17 +21,25 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package org.opentdc.workrecords.test;
+package org.opentdc.workrecords;
 
-import static org.junit.Assert.fail;
+import java.util.List;
 
-import org.junit.Test;
+import org.opentdc.service.exception.DuplicateException;
+import org.opentdc.service.exception.NotFoundException;
 
-public class WorkRecordsTest {
+public interface ServiceProvider {
 
-	@Test
-	public void test() {
-		fail("Not yet implemented");
-	}
+	public abstract List<WorkRecordModel> listWorkRecords();
+
+	public abstract WorkRecordModel createWorkRecord(WorkRecordModel workrecord) throws DuplicateException;
+
+	public abstract WorkRecordModel readWorkRecord(String id) throws NotFoundException;
+
+	public abstract WorkRecordModel updateWorkRecord(WorkRecordModel workrecord) throws NotFoundException;
+
+	public abstract void deleteWorkRecord(String id) throws NotFoundException;
+
+	public abstract int countWorkRecords();
 
 }
