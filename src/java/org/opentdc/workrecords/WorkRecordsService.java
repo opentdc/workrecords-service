@@ -58,7 +58,7 @@ public class WorkRecordsService extends GenericService<ServiceProvider> {
 	private static ServiceProvider sp = null;
 
 	// instance variables
-	private Logger logger = Logger.getLogger(this.getClass().getName());
+	private static final Logger logger = Logger.getLogger(WorkRecordsService.class.getName());
 
 	/**
 	 * Invoked for each service invocation (Constructor)
