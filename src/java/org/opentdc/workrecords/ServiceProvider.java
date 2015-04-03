@@ -30,13 +30,18 @@ import org.opentdc.service.exception.NotFoundException;
 
 public interface ServiceProvider {
 
-	public abstract List<WorkRecordModel> listWorkRecords();
+	public abstract List<WorkRecordModel> listWorkRecords(
+		String queryType,
+		String query,
+		long position,
+		long size
+	);
 
 	public abstract WorkRecordModel createWorkRecord(WorkRecordModel workrecord) throws DuplicateException;
 
 	public abstract WorkRecordModel readWorkRecord(String id) throws NotFoundException;
 
-	public abstract WorkRecordModel updateWorkRecord(WorkRecordModel workrecord) throws NotFoundException;
+	public abstract WorkRecordModel updateWorkRecord(String id, WorkRecordModel workrecord) throws NotFoundException;
 
 	public abstract void deleteWorkRecord(String id) throws NotFoundException;
 

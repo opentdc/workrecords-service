@@ -29,12 +29,14 @@ import java.util.logging.Logger;
 import javax.servlet.ServletContext;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
+import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
@@ -77,8 +79,13 @@ public class WorkRecordsService extends GenericService<ServiceProvider> {
 	/******************************** workrecord *****************************************/
 	@GET
 	@Path("/")
-	public List<WorkRecordModel> listWorkRecords() {
-		return sp.listWorkRecords();
+	public List<WorkRecordModel> listWorkRecords(
+		@DefaultValue(DEFAULT_QUERY_TYPE) @QueryParam("queryType") String queryType,
+		@DefaultValue(DEFAULT_QUERY) @QueryParam("query") String query,
+		@DefaultValue(DEFAULT_POSITION) @QueryParam("position") long position,
+		@DefaultValue(DEFAULT_SIZE) @QueryParam("size") long size			
+	) {
+		return sp.listWorkRecords(queryType, query, position, size);
 	}
 
 	@POST
@@ -89,14 +96,19 @@ public class WorkRecordsService extends GenericService<ServiceProvider> {
 
 	@GET
 	@Path("/{id}")
-	public WorkRecordModel readWorkRecord(@PathParam("id") String id) throws NotFoundException {
+	public WorkRecordModel readWorkRecord(
+		@PathParam("id") String id
+	) throws NotFoundException {
 		return sp.readWorkRecord(id);
 	}
 
 	@PUT
-	@Path("/")
-	public WorkRecordModel updateWorkRecord(WorkRecordModel workrecord) throws NotFoundException {
-		return sp.updateWorkRecord(workrecord);
+	@Path("/{id}")
+	public WorkRecordModel updateWorkRecord(
+		@PathParam("id") String id,
+		WorkRecordModel workrecord
+	) throws NotFoundException {
+		return sp.updateWorkRecord(id, workrecord);
 	}
 
 	@DELETE

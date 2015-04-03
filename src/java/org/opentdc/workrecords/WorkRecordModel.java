@@ -227,19 +227,4 @@ public class WorkRecordModel {
 		this.isBillable = isBillable;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		StringBuilder _sb = new StringBuilder();
-		Formatter _formatter = new Formatter(_sb, Locale.US);
-		_formatter
-				.format("{\n\tid:\t%s\n\txri:\t%s\n\tprojectId:\t%s\n\tresourceId:\t%s\n\tstartAt:\t%s\n\tdurationHours:\t%s\n\tdurationMinutes:\t%s\n\trateId:\t%s\n\tisBillable:\t%s\n}",
-						getId(), getXri(), getProjectId(), getResourceId(), getStartAt(), getDurationHours(), getDurationMinutes(), getRateId(), isBillable());
-		_formatter.close();
-		return _sb.toString();
-	}
 }
