@@ -24,8 +24,6 @@
 package org.opentdc.workrecords;
 
 import java.util.Date;
-import java.util.Formatter;
-import java.util.Locale;
 import java.util.UUID;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -37,6 +35,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class WorkRecordModel {
 	public final static String DEF_XRI = "XRI_UNDEFINED";
 	public final static String DEF_ID = "ID_UNDEFINED";
+	public final static String DEF_COMMENT = "COMMENT_UNDEFINED";
 
 	private String id;
 	private String xri;
@@ -47,6 +46,7 @@ public class WorkRecordModel {
 	private int durationMinutes;
 	private String rateId;
 	private boolean isBillable;
+	private String comment;
 
 	public WorkRecordModel() {
 		this.id = UUID.randomUUID().toString();
@@ -58,6 +58,7 @@ public class WorkRecordModel {
 		this.durationMinutes = 30;
 		this.rateId = DEF_ID;
 		this.isBillable = true;
+		this.setComment(DEF_COMMENT);
 	}
 
 	public WorkRecordModel(
@@ -68,7 +69,8 @@ public class WorkRecordModel {
 			int durationHours,
 			int durationMinutes,
 			String rateId,
-			boolean isBillable) {
+			boolean isBillable, 
+			String comment) {
 		this.id = UUID.randomUUID().toString();
 		this.xri = xri;
 		this.projectId = projectId;
@@ -78,6 +80,7 @@ public class WorkRecordModel {
 		this.durationMinutes = durationMinutes;
 		this.rateId = rateId;
 		this.isBillable = isBillable;
+		this.setComment(comment);
 	}
 	
 	public WorkRecordModel(WorkRecordModel w, boolean generateId) {
@@ -94,7 +97,8 @@ public class WorkRecordModel {
 		this.durationHours = w.getDurationHours();
 		this.durationMinutes = w.getDurationMinutes();
 		this.rateId = w.getRateId();
-		this.isBillable = w.isBillable();	
+		this.isBillable = w.isBillable();
+		this.setComment(w.getComment());
 	}
 
 	/**
@@ -227,4 +231,17 @@ public class WorkRecordModel {
 		this.isBillable = isBillable;
 	}
 
+	/**
+	 * @return the comment
+	 */
+	public String getComment() {
+		return comment;
+	}
+
+	/**
+	 * @param comment the comment to set
+	 */
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
 }
