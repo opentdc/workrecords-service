@@ -24,7 +24,6 @@
 package org.opentdc.workrecords;
 
 import java.util.Date;
-import java.util.UUID;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -33,12 +32,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement
 public class WorkRecordModel {
-	public final static String DEF_XRI = "XRI_UNDEFINED";
-	public final static String DEF_ID = "ID_UNDEFINED";
-	public final static String DEF_COMMENT = "COMMENT_UNDEFINED";
-
 	private String id;
-	private String xri;
 	private String projectId;
 	private String resourceId;
 	private Date startAt;
@@ -49,20 +43,9 @@ public class WorkRecordModel {
 	private String comment;
 
 	public WorkRecordModel() {
-		this.id = UUID.randomUUID().toString();
-		this.xri = DEF_XRI;
-		this.projectId = DEF_ID;
-		this.resourceId = DEF_ID;
-		this.startAt = new Date();
-		this.durationHours = 1;
-		this.durationMinutes = 30;
-		this.rateId = DEF_ID;
-		this.isBillable = true;
-		this.setComment(DEF_COMMENT);
 	}
 
 	public WorkRecordModel(
-			String xri,
 			String projectId, 
 			String resourceId,
 			Date startAt,
@@ -71,8 +54,6 @@ public class WorkRecordModel {
 			String rateId,
 			boolean isBillable, 
 			String comment) {
-		this.id = UUID.randomUUID().toString();
-		this.xri = xri;
 		this.projectId = projectId;
 		this.resourceId = resourceId;
 		this.startAt = startAt;
@@ -83,24 +64,6 @@ public class WorkRecordModel {
 		this.setComment(comment);
 	}
 	
-	public WorkRecordModel(WorkRecordModel w, boolean generateId) {
-		if (generateId == true) {
-			this.id = UUID.randomUUID().toString();
-		}
-		else {
-			this.id = w.getId();
-		}
-		this.xri = w.getXri();
-		this.projectId = w.getProjectId();
-		this.resourceId = w.getResourceId();
-		this.startAt = w.getStartAt();
-		this.durationHours = w.getDurationHours();
-		this.durationMinutes = w.getDurationMinutes();
-		this.rateId = w.getRateId();
-		this.isBillable = w.isBillable();
-		this.setComment(w.getComment());
-	}
-
 	/**
 	 * 
 	 * @return the ID
@@ -112,25 +75,8 @@ public class WorkRecordModel {
 	/**
 	 * Set the ID to a unique random number
 	 */
-	public void setId() {
-		this.id = UUID.randomUUID().toString();
-	}
-
-	/**
-	 * Return the object ID in the backend.
-	 * @return the xri 
-	 */
-	public String getXri() {
-		return xri;
-	}
-
-	/**
-	 * Set the object ID for the backend.
-	 * @param xri
-	 *            the xri to set
-	 */
-	public void setXri(String xri) {
-		this.xri = xri;
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	/**
