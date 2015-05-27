@@ -27,6 +27,7 @@ import java.util.List;
 
 import org.opentdc.service.exception.DuplicateException;
 import org.opentdc.service.exception.NotFoundException;
+import org.opentdc.service.exception.ValidationException;
 
 public interface ServiceProvider {
 
@@ -37,14 +38,20 @@ public interface ServiceProvider {
 		long size
 	);
 
-	public abstract WorkRecordModel createWorkRecord(WorkRecordModel workrecord) throws DuplicateException;
+	public abstract WorkRecordModel createWorkRecord(
+			WorkRecordModel workrecord) 
+		throws DuplicateException, ValidationException;
 
-	public abstract WorkRecordModel readWorkRecord(String id) throws NotFoundException;
+	public abstract WorkRecordModel readWorkRecord(
+			String id) 
+		throws NotFoundException;
 
-	public abstract WorkRecordModel updateWorkRecord(String id, WorkRecordModel workrecord) throws NotFoundException;
+	public abstract WorkRecordModel updateWorkRecord(
+			String id, 
+			WorkRecordModel workrecord) 
+		throws NotFoundException;
 
-	public abstract void deleteWorkRecord(String id) throws NotFoundException;
-
-	public abstract int countWorkRecords();
-
+	public abstract void deleteWorkRecord(
+			String id) 
+		throws NotFoundException;
 }
