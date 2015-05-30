@@ -41,9 +41,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
 import org.opentdc.service.GenericService;
-import org.opentdc.service.exception.DuplicateException;
-import org.opentdc.service.exception.NotFoundException;
-import org.opentdc.service.exception.ValidationException;
+import org.opentdc.service.exception.*;
 
 @Path("/api/workrecord")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -102,7 +100,7 @@ public class WorkRecordsService extends GenericService<ServiceProvider> {
 	public WorkRecordModel updateWorkRecord(
 		@PathParam("id") String id,
 		WorkRecordModel workrecord
-	) throws NotFoundException {
+	) throws NotFoundException, NotAllowedException {
 		return sp.updateWorkRecord(id, workrecord);
 	}
 
@@ -110,7 +108,7 @@ public class WorkRecordsService extends GenericService<ServiceProvider> {
 	@Path("/{id}")
 	public void deleteWorkRecord(
 			@PathParam("id") String id) 
-		throws NotFoundException {
+		throws NotFoundException, InternalServerErrorException {
 		sp.deleteWorkRecord(id);
 	}
 }

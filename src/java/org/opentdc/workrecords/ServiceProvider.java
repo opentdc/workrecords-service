@@ -25,9 +25,7 @@ package org.opentdc.workrecords;
 
 import java.util.List;
 
-import org.opentdc.service.exception.DuplicateException;
-import org.opentdc.service.exception.NotFoundException;
-import org.opentdc.service.exception.ValidationException;
+import org.opentdc.service.exception.*;
 
 public interface ServiceProvider {
 
@@ -49,9 +47,9 @@ public interface ServiceProvider {
 	public abstract WorkRecordModel updateWorkRecord(
 			String id, 
 			WorkRecordModel workrecord) 
-		throws NotFoundException;
+		throws NotFoundException, NotAllowedException;
 
 	public abstract void deleteWorkRecord(
 			String id) 
-		throws NotFoundException;
+		throws NotFoundException, InternalServerErrorException;
 }
