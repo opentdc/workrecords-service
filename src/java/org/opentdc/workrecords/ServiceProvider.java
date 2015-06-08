@@ -47,7 +47,7 @@ public interface ServiceProvider {
 	public abstract WorkRecordModel updateWorkRecord(
 			String id, 
 			WorkRecordModel workrecord) 
-		throws NotFoundException, NotAllowedException;
+		throws NotFoundException, ValidationException;
 
 	public abstract void deleteWorkRecord(
 			String id) 

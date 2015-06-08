@@ -100,7 +100,7 @@ public class WorkRecordsService extends GenericService<ServiceProvider> {
 	public WorkRecordModel updateWorkRecord(
 		@PathParam("id") String id,
 		WorkRecordModel workrecord
-	) throws NotFoundException, NotAllowedException {
+	) throws NotFoundException, ValidationException {
 		return sp.updateWorkRecord(id, workrecord);
 	}
 
