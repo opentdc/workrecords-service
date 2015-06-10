@@ -34,16 +34,16 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class WorkRecordModel {
 	private String id;				// sortable
-	private String companyId;
-	private String companyTitle;
-	private String projectId;
-	private String projectTitle;
-	private String resourceId;
-	private Date startAt;
-	private int durationHours;
-	private int durationMinutes;
+	private String companyId;		// mandatory
+	private String companyTitle;	// mandatory
+	private String projectId;		// mandatory
+	private String projectTitle;	// mandatory
+	private String resourceId;		// mandatory
+	private Date startAt;			// mandatory 
+	private int durationHours = 1;		// default: 1
+	private int durationMinutes = 30;	// default: 30
 	private String rateId;
-	private boolean isBillable;
+	private boolean isBillable = true;		// default: true
 	private String comment;
 	private Date createdAt;
 	private String createdBy;
