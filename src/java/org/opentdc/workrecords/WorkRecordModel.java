@@ -34,7 +34,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class WorkRecordModel {
 	private String id;				// sortable
+	private String companyId;
+	private String companyTitle;
 	private String projectId;
+	private String projectTitle;
 	private String resourceId;
 	private Date startAt;
 	private int durationHours;
@@ -51,7 +54,10 @@ public class WorkRecordModel {
 	}
 
 	public WorkRecordModel(
+			String companyId,
+			String companyTitle,
 			String projectId, 
+			String projectTitle,
 			String resourceId,
 			Date startAt,
 			int durationHours,
@@ -59,7 +65,10 @@ public class WorkRecordModel {
 			String rateId,
 			boolean isBillable, 
 			String comment) {
+		this.companyId = companyId;
+		this.companyTitle = companyTitle;
 		this.projectId = projectId;
+		this.projectTitle = projectTitle;
 		this.resourceId = resourceId;
 		this.startAt = startAt;
 		this.durationHours = durationHours;
@@ -84,6 +93,22 @@ public class WorkRecordModel {
 		this.id = id;
 	}
 
+	public String getCompanyId() {
+		return companyId;
+	}
+
+	public void setCompanyId(String companyId) {
+		this.companyId = companyId;
+	}
+
+	public String getCompanyTitle() {
+		return companyTitle;
+	}
+
+	public void setCompanyTitle(String companyTitle) {
+		this.companyTitle = companyTitle;
+	}
+
 	/**
 	 * @return the projectId
 	 */
@@ -98,6 +123,14 @@ public class WorkRecordModel {
 		this.projectId = projectId;
 	}
 
+	public String getProjectTitle() {
+		return projectTitle;
+	}
+
+	public void setProjectTitle(String projectTitle) {
+		this.projectTitle = projectTitle;
+	}
+	
 	/**
 	 * @return the resourceId
 	 */
