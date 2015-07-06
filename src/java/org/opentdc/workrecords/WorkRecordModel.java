@@ -42,7 +42,7 @@ public class WorkRecordModel {
 	private Date startAt;			// mandatory 
 	private int durationHours = 1;		// default: 1
 	private int durationMinutes = 30;	// default: 30
-	private String rateId;
+	private String rateId;			// mandatory
 	private boolean isBillable = true;		// default: true
 	private String comment;
 	private Date createdAt;
