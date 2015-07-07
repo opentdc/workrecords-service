@@ -32,8 +32,8 @@ public interface ServiceProvider {
 	public abstract List<WorkRecordModel> listWorkRecords(
 		String queryType,
 		String query,
-		long position,
-		long size
+		int position,
+		int size
 	);
 
 	public abstract WorkRecordModel createWorkRecord(
