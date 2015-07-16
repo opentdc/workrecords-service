@@ -42,7 +42,6 @@ public class WorkRecordModel {
 	private Date startAt;			// mandatory 
 	private int durationHours = 1;		// default: 1
 	private int durationMinutes = 30;	// default: 30
-	private String rateId;			// mandatory
 	private boolean isBillable = true;		// default: true
 	private String comment;
 	private Date createdAt;
@@ -62,7 +61,6 @@ public class WorkRecordModel {
 			Date startAt,
 			int durationHours,
 			int durationMinutes,
-			String rateId,
 			boolean isBillable, 
 			String comment) {
 		this.companyId = companyId;
@@ -73,7 +71,6 @@ public class WorkRecordModel {
 		this.startAt = startAt;
 		this.durationHours = durationHours;
 		this.durationMinutes = durationMinutes;
-		this.rateId = rateId;
 		this.isBillable = isBillable;
 		this.setComment(comment);
 	}
@@ -185,20 +182,6 @@ public class WorkRecordModel {
 	 */
 	public void setDurationMinutes(int durationMinutes) {
 		this.durationMinutes = durationMinutes;
-	}
-
-	/**
-	 * @return the rateId
-	 */
-	public String getRateId() {
-		return rateId;
-	}
-
-	/**
-	 * @param rateId the rateId to set
-	 */
-	public void setRateId(String rateId) {
-		this.rateId = rateId;
 	}
 
 	/**
