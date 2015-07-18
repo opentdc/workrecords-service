@@ -35,10 +35,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class WorkRecordModel {
 	private String id;				// sortable
 	private String companyId;		// mandatory
-	private String companyTitle;	// mandatory
+	private String companyTitle;	// derived
 	private String projectId;		// mandatory
-	private String projectTitle;	// mandatory
+	private String projectTitle;	// derived
 	private String resourceId;		// mandatory
+	private String resourceName;	// derived
 	private Date startAt;			// mandatory 
 	private int durationHours = 1;		// default: 1
 	private int durationMinutes = 30;	// default: 30
