@@ -29,6 +29,7 @@ import org.opentdc.service.exception.*;
 
 public interface ServiceProvider {
 
+	//**************************** WorkRecord *************************************
 	public abstract List<WorkRecordModel> listWorkRecords(
 		String queryType,
 		String query,
@@ -52,4 +53,28 @@ public interface ServiceProvider {
 	public abstract void deleteWorkRecord(
 			String id) 
 		throws NotFoundException, InternalServerErrorException;
+	
+	//**************************** TagRef *************************************
+	public abstract List<TagRefModel> listTagRefs(
+			String workRecordId,
+			String queryType,
+			String query,
+			int position,
+			int size
+		);
+
+	public abstract TagRefModel createTagRef(
+			String workRecordId,
+			TagRefModel model) 
+	throws DuplicateException, ValidationException;
+
+	public abstract TagRefModel readTagRef(
+			String workRecordId,
+			String tagRefId) 
+	throws NotFoundException;
+
+	public abstract void deleteTagRef(
+			String workRecordId,
+			String tagRefId) 
+	throws NotFoundException, InternalServerErrorException;
 }

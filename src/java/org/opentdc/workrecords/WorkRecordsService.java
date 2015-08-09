@@ -111,4 +111,48 @@ public class WorkRecordsService extends GenericService<ServiceProvider> {
 		throws NotFoundException, InternalServerErrorException {
 		sp.deleteWorkRecord(id);
 	}
+	
+	/********************************** tagRef ***************************************/
+	@GET
+	@Path("/{id}/tagref")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<TagRefModel> listTagRefs(
+		@PathParam("id") String id,
+		@DefaultValue(DEFAULT_QUERY) @QueryParam("query") String query,
+		@DefaultValue(DEFAULT_QUERY_TYPE) @QueryParam("queryType") String queryType,
+		@DefaultValue(DEFAULT_POSITION) @QueryParam("position") int position,
+		@DefaultValue(DEFAULT_SIZE) @QueryParam("size") int size
+	) {
+		return sp.listTagRefs(id, query, queryType, position, size);
+	}
+
+	@POST
+	@Path("/{id}/tagref")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public TagRefModel createTagRef(
+		@PathParam("id") String id, 
+		TagRefModel model
+	) throws DuplicateException, ValidationException {
+		return sp.createTagRef(id, model);
+	}
+	
+	@GET
+	@Path("/{id}/tagref/{tid}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public TagRefModel readTagRef(
+		@PathParam("id") String id,
+		@PathParam("tid") String tid
+	) throws NotFoundException {
+		return sp.readTagRef(id, tid);
+	}
+
+	@DELETE
+	@Path("/{id}/tagref/{tid}")
+	public void deleteTagRef(
+		@PathParam("id") String id,
+		@PathParam("tid") String tid
+	) throws NotFoundException, InternalServerErrorException {
+		sp.deleteTagRef(id, tid);
+	}
 }

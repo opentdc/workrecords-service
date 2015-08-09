@@ -245,6 +245,14 @@ public class WorkRecordModel {
 		this.modifiedBy = modifiedBy;
 	}
 	
+	public String getResourceName() {
+		return resourceName;
+	}
+
+	public void setResourceName(String resourceName) {
+		this.resourceName = resourceName;
+	}
+	
 	/******************************* Comparator *****************************/
 	public static Comparator<WorkRecordModel> WorkRecordComparator = new Comparator<WorkRecordModel>() {
 
@@ -266,4 +274,6 @@ public class WorkRecordModel {
 			// return _attr2.compareTo(_attr1);
 		}
 	};
+
+
 }
