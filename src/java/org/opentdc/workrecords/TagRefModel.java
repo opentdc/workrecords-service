@@ -43,7 +43,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class TagRefModel {
 	private String id; 		// sortable
 	private String tagId; 	// mandatory
-	private String text;	// read-only, derived
 	private Date createdAt;
 	private String createdBy;
 	
@@ -84,22 +83,6 @@ public class TagRefModel {
 	 */
 	public void setTagId(String tagId) {
 		this.tagId = tagId;
-	}
-
-	/**
-	 * Get the text of the referenced TagModel in the current language
-	 * @return the text of the referenced TagModel in the current language
-	 */
-	public String getText() {
-		return text;
-	}
-
-	/**
-	 * Set the text of the referenced TagModel in the current language
-	 * @param text the text of the referenced TagModel in the current language
-	 */
-	public void setText(String text) {
-		this.text = text;
 	}
 
 	/**

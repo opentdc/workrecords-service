@@ -48,6 +48,7 @@ public class WorkRecordModel {
 	private int durationHours = 1;		// default: 1
 	private int durationMinutes = 30;	// default: 30
 	private boolean isBillable = true;		// default: true
+	private boolean isRunning = false;  // default: false
 	private String comment;
 	private Date createdAt;
 	private String createdBy;
@@ -249,6 +250,20 @@ public class WorkRecordModel {
 		this.resourceName = resourceName;
 	}
 	
+	/**
+	 * @return the isRunning
+	 */
+	public boolean isRunning() {
+		return isRunning;
+	}
+
+	/**
+	 * @param isRunning the isRunning to set
+	 */
+	public void setRunning(boolean isRunning) {
+		this.isRunning = isRunning;
+	}
+
 	/******************************* Comparator *****************************/
 	public static Comparator<WorkRecordModel> WorkRecordComparator = new Comparator<WorkRecordModel>() {
 
