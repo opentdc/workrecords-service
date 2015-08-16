@@ -30,6 +30,10 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.opentdc.resources.ResourceModel;
+import org.opentdc.wtt.CompanyModel;
+import org.opentdc.wtt.ProjectModel;
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement
 public class WorkRecordModel {
@@ -54,26 +58,18 @@ public class WorkRecordModel {
 	}
 
 	public WorkRecordModel(
-			String companyId,
-			String companyTitle,
-			String projectId, 
-			String projectTitle,
-			String resourceId,
-			Date startAt,
-			int durationHours,
-			int durationMinutes,
-			boolean isBillable, 
-			String comment) {
-		this.companyId = companyId;
-		this.companyTitle = companyTitle;
-		this.projectId = projectId;
-		this.projectTitle = projectTitle;
-		this.resourceId = resourceId;
+			CompanyModel company,
+			ProjectModel project,
+			ResourceModel resource,
+			Date startAt) 
+	{
+		this.companyId = company.getId();
+		this.companyTitle = company.getTitle();
+		this.projectId = project.getId();
+		this.projectTitle = project.getTitle();
+		this.resourceId = resource.getId();
+		this.resourceName = resource.getName();
 		this.startAt = startAt;
-		this.durationHours = durationHours;
-		this.durationMinutes = durationMinutes;
-		this.isBillable = isBillable;
-		this.setComment(comment);
 	}
 	
 	/**
