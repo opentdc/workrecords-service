@@ -49,6 +49,7 @@ public class WorkRecordModel {
 	private int durationMinutes = 30;	// default: 30
 	private boolean isBillable = true;		// default: true
 	private boolean isRunning = false;  // default: false
+	private boolean isPaused = false;  	// default: false
 	private String comment;
 	private Date createdAt;
 	private String createdBy;
@@ -262,6 +263,20 @@ public class WorkRecordModel {
 	 */
 	public void setRunning(boolean isRunning) {
 		this.isRunning = isRunning;
+	}
+
+	/**
+	 * @return the isPaused
+	 */
+	public boolean isPaused() {
+		return isPaused;
+	}
+
+	/**
+	 * @param isPaused the isPaused to set
+	 */
+	public void setPaused(boolean isPaused) {
+		this.isPaused = isPaused;
 	}
 
 	/******************************* Comparator *****************************/
