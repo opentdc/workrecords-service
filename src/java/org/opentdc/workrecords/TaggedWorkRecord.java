@@ -24,6 +24,7 @@
 package org.opentdc.workrecords;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 /**
  * @author Bruno Kaiser
@@ -104,5 +105,27 @@ public class TaggedWorkRecord {
 		}
 		return false;
 	}
+	/******************************* Comparator *****************************/
+	public static Comparator<TaggedWorkRecord> TaggedWorkRecordComparator = new Comparator<TaggedWorkRecord>() {
+
+		public int compare(TaggedWorkRecord obj1, TaggedWorkRecord obj2) {
+			if (obj1.getModel().getId() == null) {
+				return -1;
+			}
+			if (obj2.getModel().getId() == null) {
+				return 1;
+			}
+
+			String _attr1 = obj1.getModel().getId();
+			String _attr2 = obj2.getModel().getId();
+
+			// ascending order
+			return _attr1.compareTo(_attr2);
+
+			// descending order
+			// return _attr2.compareTo(_attr1);
+		}
+	};
+
 	
 }

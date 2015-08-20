@@ -31,8 +31,8 @@ public interface ServiceProvider {
 
 	//**************************** WorkRecord *************************************
 	public abstract List<WorkRecordModel> listWorkRecords(
-		String queryType,
 		String query,
+		String queryType,
 		int position,
 		int size
 	);

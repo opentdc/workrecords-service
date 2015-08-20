@@ -71,12 +71,12 @@ public class WorkRecordsService extends GenericService<ServiceProvider> {
 	@GET
 	@Path("/")
 	public List<WorkRecordModel> listWorkRecords(
-		@DefaultValue(DEFAULT_QUERY_TYPE) @QueryParam("queryType") String queryType,
-		@DefaultValue(DEFAULT_QUERY) @QueryParam("query") String query,
+		@DefaultValue(DEFAULT_QUERY_TYPE) @QueryParam("query") String query,
+		@DefaultValue(DEFAULT_QUERY) @QueryParam("queryType") String queryType,
 		@DefaultValue(DEFAULT_POSITION) @QueryParam("position") int position,
 		@DefaultValue(DEFAULT_SIZE) @QueryParam("size") int size			
 	) {
-		return sp.listWorkRecords(queryType, query, position, size);
+		return sp.listWorkRecords(query, queryType, position, size);
 	}
 
 	@POST
