@@ -71,8 +71,8 @@ public class WorkRecordsService extends GenericService<ServiceProvider> {
 	@GET
 	@Path("/")
 	public List<WorkRecordModel> listWorkRecords(
-		@DefaultValue(DEFAULT_QUERY_TYPE) @QueryParam("query") String query,
-		@DefaultValue(DEFAULT_QUERY) @QueryParam("queryType") String queryType,
+		@DefaultValue(DEFAULT_QUERY) @QueryParam("query") String query,
+		@DefaultValue(DEFAULT_QUERY_TYPE) @QueryParam("queryType") String queryType,
 		@DefaultValue(DEFAULT_POSITION) @QueryParam("position") int position,
 		@DefaultValue(DEFAULT_SIZE) @QueryParam("size") int size			
 	) {
@@ -126,6 +126,18 @@ public class WorkRecordsService extends GenericService<ServiceProvider> {
 		return sp.listTagRefs(id, query, queryType, position, size);
 	}
 
+	@POST
+	@Path("/{id}/addTags")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<TagRefModel> addTags(
+		@PathParam("id") String id,
+		String tags)
+		throws ValidationException
+	{
+		return sp.addTags(id, tags);
+	}
+	
 	@POST
 	@Path("/{id}/tagref")
 	@Consumes(MediaType.APPLICATION_JSON)

@@ -50,6 +50,7 @@ public class WorkRecordModel {
 	private boolean isBillable = true;		// default: true
 	private boolean isRunning = false;  // default: false
 	private boolean isPaused = false;  	// default: false
+	private String tagIdList; 
 	private String comment;
 	private Date createdAt;
 	private String createdBy;
@@ -277,6 +278,22 @@ public class WorkRecordModel {
 	 */
 	public void setPaused(boolean isPaused) {
 		this.isPaused = isPaused;
+	}
+
+	/**
+	 *
+	 * @return the tagIdList
+	 */
+	public String getTagIdList() {
+		return tagIdList;
+	}
+
+	/**
+	 * format ::=  "tagId{,tagId}"
+	 * @param tagIdList the tagIdList to set
+	 */
+	public void setTagIdList(String tagIdList) {
+		this.tagIdList = tagIdList;
 	}
 
 	/******************************* Comparator *****************************/
