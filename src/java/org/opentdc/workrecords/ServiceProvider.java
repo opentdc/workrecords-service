@@ -25,6 +25,7 @@ package org.opentdc.workrecords;
 
 import java.util.List;
 
+import org.opentdc.service.TagRefModel;
 import org.opentdc.service.exception.*;
 
 /**

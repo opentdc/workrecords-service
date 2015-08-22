@@ -41,6 +41,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
 import org.opentdc.service.GenericService;
+import org.opentdc.service.TagRefModel;
 import org.opentdc.service.exception.*;
 
 @Path("/api/workrecord")

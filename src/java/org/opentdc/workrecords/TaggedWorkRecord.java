@@ -26,6 +26,8 @@ package org.opentdc.workrecords;
 import java.util.ArrayList;
 import java.util.Comparator;
 
+import org.opentdc.service.TagRefModel;
+
 /**
  * @author Bruno Kaiser
  *
