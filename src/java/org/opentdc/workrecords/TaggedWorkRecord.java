@@ -99,7 +99,7 @@ public class TaggedWorkRecord {
 	 */
 	public boolean containsTag(String tagId) {
 		for (TagRefModel _model : tagRefs) {
-			if (_model.getTagId() == tagId) {
+			if (_model.getTagId().equalsIgnoreCase(tagId)) {
 				return true;
 			}
 		}
