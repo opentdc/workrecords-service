@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.logging.Logger;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.DefaultValue;
@@ -83,9 +84,10 @@ public class WorkRecordsService extends GenericService<ServiceProvider> {
 	@POST
 	@Path("/")
 	public WorkRecordModel createWorkRecord(
+			@Context HttpServletRequest request,
 			WorkRecordModel workrecord) 
 		throws DuplicateException, ValidationException {
-		return sp.createWorkRecord(workrecord);
+		return sp.createWorkRecord(request, workrecord);
 	}
 
 	@GET
@@ -99,10 +101,11 @@ public class WorkRecordsService extends GenericService<ServiceProvider> {
 	@PUT
 	@Path("/{id}")
 	public WorkRecordModel updateWorkRecord(
+		@Context HttpServletRequest request,
 		@PathParam("id") String id,
 		WorkRecordModel workrecord
 	) throws NotFoundException, ValidationException {
-		return sp.updateWorkRecord(id, workrecord);
+		return sp.updateWorkRecord(request, id, workrecord);
 	}
 
 	@DELETE
@@ -132,11 +135,12 @@ public class WorkRecordsService extends GenericService<ServiceProvider> {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<TagRefModel> addTags(
+		@Context HttpServletRequest request,
 		@PathParam("id") String id,
 		String tags)
 		throws ValidationException
 	{
-		return sp.addTags(id, tags);
+		return sp.addTags(request, id, tags);
 	}
 	
 	@POST
@@ -144,10 +148,11 @@ public class WorkRecordsService extends GenericService<ServiceProvider> {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public TagRefModel createTagRef(
+		@Context HttpServletRequest request,
 		@PathParam("id") String id, 
 		TagRefModel model
 	) throws DuplicateException, ValidationException {
-		return sp.createTagRef(id, model);
+		return sp.createTagRef(request, id, model);
 	}
 	
 	@GET

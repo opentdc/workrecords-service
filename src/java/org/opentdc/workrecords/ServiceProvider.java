@@ -25,6 +25,8 @@ package org.opentdc.workrecords;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.opentdc.service.TagRefModel;
 import org.opentdc.service.exception.*;
 
@@ -53,12 +55,14 @@ public interface ServiceProvider {
 
 	/**
 	 * Create a new WorkRecord.
+	 * @param request the servlet request
 	 * @param workrecord the new data
 	 * @return the newly created WorkRecord
 	 * @throws DuplicateException if a WorkRecord with the same ID already exists
 	 * @throws ValidationException if any data is incorrect
 	 */
 	public abstract WorkRecordModel createWorkRecord(
+			HttpServletRequest request,
 			WorkRecordModel workrecord) 
 		throws DuplicateException, ValidationException;
 
@@ -74,6 +78,7 @@ public interface ServiceProvider {
 
 	/**
 	 * Update a WorkRecord.
+	 * @param request the servlet request
 	 * @param id the ID of the WorkRecord to update
 	 * @param workrecord the new data
 	 * @return the updated WorkRecord data
@@ -81,6 +86,7 @@ public interface ServiceProvider {
 	 * @throws ValidationException if the new data is incorrect
 	 */
 	public abstract WorkRecordModel updateWorkRecord(
+			HttpServletRequest request,
 			String id, 
 			WorkRecordModel workrecord) 
 		throws NotFoundException, ValidationException;
@@ -114,17 +120,20 @@ public interface ServiceProvider {
 		);
 	
 	/**
+	 * @param request the servlet request
 	 * @param workRecordId
 	 * @param tags
 	 * @return
 	 * @throws ValidationException
 	 */
 	public abstract List<TagRefModel> addTags(
+			HttpServletRequest request,
 			String workRecordId,
 			String tags)
 	throws ValidationException;
 
 	/**
+	 * @param request the servlet request
 	 * @param workRecordId
 	 * @param model
 	 * @return
@@ -132,6 +141,7 @@ public interface ServiceProvider {
 	 * @throws ValidationException
 	 */
 	public abstract TagRefModel createTagRef(
+			HttpServletRequest request,
 			String workRecordId,
 			TagRefModel model) 
 	throws DuplicateException, ValidationException;
